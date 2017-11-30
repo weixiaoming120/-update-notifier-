@@ -1,7 +1,7 @@
-'use strict';
-const spawn = require('child_process').spawn;
-const path = require('path');
-const format = require('util').format;
+'use strict';//严格使用
+const spawn = require('child_process').spawn;//声明spawn对象，引入进程模块
+const path = require('path');//声明path对象，引入path模块（Node.js path 模块提供了一些用于处理文件路径的小工具）
+const format = require('util').format;//声明format对象，访问util中的format模块（util.format返回一个格式化的字符串）
 const importLazy = require('import-lazy')(require);
 
 const configstore = importLazy('configstore');
@@ -22,7 +22,10 @@ class UpdateNotifier {
 		options.pkg = options.pkg || {};
 
 		// Reduce pkg to the essential keys. with fallback to deprecated options
+		//将pkg减少到必要的键，回退到不推荐选项
 		// TODO: Remove deprecated options at some point far into the future
+		//TODO: 在将来的某个时候删除弃用的选项
+		
 		options.pkg = {
 			name: options.pkg.name || options.packageName,
 			version: options.pkg.version || options.packageVersion
@@ -47,7 +50,9 @@ class UpdateNotifier {
 				this.config = new ConfigStore(`update-notifier-${this.packageName}`, {
 					optOut: false,
 					// Init with the current time so the first check is only
+					//用当前时间初始化，所以第一次检查是唯一的
 					// after the set interval, so not to bother users right away
+					//设定时间间隔，以免马上打扰到用户
 					lastUpdateCheck: Date.now()
 				});
 			} catch (err) {
