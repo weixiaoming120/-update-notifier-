@@ -144,7 +144,6 @@ class UpdateNotifier {
 				process.exit();
 			});
 		}
-
 		return this;
 	}
 }
