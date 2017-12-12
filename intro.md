@@ -1,6 +1,8 @@
 # 项目名称：更新通知
 > 更新您的CLI应用程序的通知
 
+![](screenshot.png)
+
 以一种非侵入性的方式通知用户您的更新包。
 
 ### 内容
@@ -127,7 +129,7 @@ if (notifier.update) {
 ##### 信息
  
 类型: `string`<br>
-默认: 见上面的截图(https://github.com/yeoman/update-notifier#update-notifier-)
+默认: 见上面的截图(https://github.com/weixiaoming120/-update-notifier-/edit/master/intro.md)
 
 当更新可用时将显示的消息。
 
@@ -143,7 +145,7 @@ if (notifier.update) {
 类型: `Object`<br>
 默认: `{padding: 1, margin: 1, align: 'center', borderColor: 'yellow', borderStyle: 'round'}` *(查看截图)*
 
-将传递给的选项对象boxen(https://github.com/sindresorhus/boxen).
+将传递给的选项对象boxen.
 
 ### 用户设置
 
