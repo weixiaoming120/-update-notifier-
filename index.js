@@ -2,21 +2,23 @@
 const spawn = require('child_process').spawn;//声明spawn对象，引入进程模块
 const path = require('path');//声明path对象，引入path模块（Node.js path 模块提供了一些用于处理文件路径的小工具）
 const format = require('util').format;//声明format对象，访问util中的format模块（util.format返回一个格式化的字符串）
-const importLazy = require('import-lazy')(require);
-
-const configstore = importLazy('configstore');
-const chalk = importLazy('chalk');
-const semverDiff = importLazy('semver-diff');
-const latestVersion = importLazy('latest-version');
-const isNpm = importLazy('is-npm');
-const isInstalledGlobally = importLazy('is-installed-globally');
-const boxen = importLazy('boxen');
-const xdgBasedir = importLazy('xdg-basedir');
-const isCi = importLazy('is-ci');
-const ONE_DAY = 1000 * 60 * 60 * 24;
-
+const importLazy = require('import-lazy')(require);//  传递`require`或者一个自定义的导入函数
+ 
+const configstore = importLazy('configstore');// 创建一个具有唯一ID的Configstore实例 
+const chalk = importLazy('chalk');//引入粉笔模块
+const semverDiff = importLazy('semver-diff');//获得两个DIFF类型semver版本：0.0.1 0.0.2→patchemverDiff（versionA，versionB），返回两个semver版本之间的差异类型，或者null如果它们是相同的，或者第二个比第一个更低。
+const latestVersion = importLazy('latest-version');//获取最新版本的npm软件包
+const isNpm = importLazy('is-npm');//检测代码是否作为npm脚本运行
+const isInstalledGlobally = importLazy('is-installed-globally');//检查您的软件包是否全球安装，如果您的CLI在全局和本地安装时需要不同的行为，可能会很有用
+const boxen = importLazy('boxen');//在终端中创建框(创建边框)
+const xdgBasedir = importLazy('xdg-basedir');//获取XDG基本目录路径，属性.data，.config，.cache，.runtime将返回null在，无论是XDG环境变量没有设置常见的情况和用户的主目录无法找到
+const isCi = importLazy('is-ci');//如果当前环境是连续集成服务器，则返回true 。
+const ONE_DAY = 1000 * 60 * 60 * 24;//设置一天的单位时间是24小时
+ //创建一个更新CLI应用程序的通知类
 class UpdateNotifier {
+	//创建一个options对象的构造函数
 	constructor(options) {
+		//设置options对象是options对象或者空对象
 		options = options || {};
 		this.options = options;
 		options.pkg = options.pkg || {};
