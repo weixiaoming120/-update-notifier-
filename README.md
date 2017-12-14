@@ -1,4 +1,4 @@
-# -update-notifier-
+# -update-notifier-（第三方库）
 # 更新通知项目的解析
 
  
