@@ -86,7 +86,7 @@ if (notifier.update) {
  
 类型: `Object`
 
-##### 名称
+##### name
  
 *必须*<br>
 类型: `string`
@@ -103,7 +103,7 @@ if (notifier.update) {
  
 多久检查一次更新
  
-#### 回调(错误, 更新)
+#### callback(error, update)
  
 类型: `Function`
 
@@ -115,18 +115,18 @@ if (notifier.update) {
 
 只有在有更新的情况下才会通知，进程是TTY。(https://nodejs.org/api/process.html#process_tty_terminals_and_process_stdout).
 
-#### 选项
+#### options
  
 类型: `Object`
 
-##### 推迟
+##### defer
  
 类型: `boolean`<br>
 默认: `true`
 
 在进程退出后推迟显示通知
 
-##### 信息
+##### message
  
 类型: `string`<br>
 默认: 见上面的截图(https://github.com/weixiaoming120/-update-notifier-/edit/master/intro.md)
